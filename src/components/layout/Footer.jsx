@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Phone, 
   Mail, 
@@ -67,7 +68,7 @@ export const Footer = ({ onOpenQuoteModal }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12">
           {/* Col 1 & 2: Company Identity & Mission */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-3">
+            <Link to="/" className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xs bg-[#C25E38] text-white flex items-center justify-center font-display font-extrabold text-xl">
                 S
               </div>
@@ -79,7 +80,7 @@ export const Footer = ({ onOpenQuoteModal }) => {
                   Construction & Infrastructure
                 </span>
               </div>
-            </div>
+            </Link>
 
             <p className="text-sm text-gray-400 leading-relaxed max-w-sm">
               Premier turnkey residential and commercial builders in Central India. We combine chartered civil engineering supervision, 440+ stage quality inspections, and locked-in pricing for stress-free construction.
@@ -98,34 +99,39 @@ export const Footer = ({ onOpenQuoteModal }) => {
             </h4>
             <ul className="space-y-2.5 text-xs text-gray-400">
               <li>
-                <a href="#services" className="hover:text-white transition-colors">
-                  Turnkey Home Construction
-                </a>
+                <Link to="/services/turnkey-construction" className="hover:text-white transition-colors">
+                  Turnkey Construction
+                </Link>
               </li>
               <li>
-                <a href="#services" className="hover:text-white transition-colors">
+                <Link to="/services/residential-house-construction" className="hover:text-white transition-colors">
+                  Residential Houses & Duplexes
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/commercial-building-construction" className="hover:text-white transition-colors">
                   Commercial Complexes
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#services" className="hover:text-white transition-colors">
-                  Industrial PEB & Warehouses
-                </a>
+                <Link to="/services/industrial-construction" className="hover:text-white transition-colors">
+                  Industrial PEB & Sheds
+                </Link>
               </li>
               <li>
-                <a href="#services" className="hover:text-white transition-colors">
-                  Structural Renovation
-                </a>
+                <Link to="/services/civil-and-structural-works" className="hover:text-white transition-colors">
+                  Civil & Structural Works
+                </Link>
               </li>
               <li>
-                <a href="#services" className="hover:text-white transition-colors">
-                  Architectural & 3D Plans
-                </a>
+                <Link to="/services/renovation-and-remodeling" className="hover:text-white transition-colors">
+                  Renovation & Remodeling
+                </Link>
               </li>
               <li>
-                <a href="#services" className="hover:text-white transition-colors">
-                  Project Management (PMC)
-                </a>
+                <Link to="/services" className="text-[#C25E38] hover:text-[#E09F3E] font-medium transition-colors">
+                  View All 9 Services →
+                </Link>
               </li>
             </ul>
           </div>
@@ -137,29 +143,29 @@ export const Footer = ({ onOpenQuoteModal }) => {
             </h4>
             <ul className="space-y-2.5 text-xs text-gray-400">
               <li>
-                <a href="#projects" className="hover:text-white transition-colors">
+                <Link to="/#projects" className="hover:text-white transition-colors">
                   Portfolio & Sites
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#process" className="hover:text-white transition-colors">
+                <Link to="/#process" className="hover:text-white transition-colors">
                   Our 6-Stage Process
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#cost-estimator" className="hover:text-white transition-colors">
+                <Link to="/#cost-estimator" className="hover:text-white transition-colors">
                   Cost Calculator
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#why-us" className="hover:text-white transition-colors">
+                <Link to="/#why-us" className="hover:text-white transition-colors">
                   Why Speeddex
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#faq" className="hover:text-white transition-colors">
+                <Link to="/#faq" className="hover:text-white transition-colors">
                   Indian Construction FAQ
-                </a>
+                </Link>
               </li>
               <li>
                 <button

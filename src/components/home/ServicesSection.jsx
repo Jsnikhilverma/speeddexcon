@@ -79,7 +79,7 @@ export const ServicesSection = ({ onOpenQuoteModal }) => {
 
                   {/* Highlights checklist */}
                   <ul className="space-y-2 mb-6 border-t border-[#F0ECE4] pt-4">
-                    {service.highlights.slice(0, 3).map((item, i) => (
+                    {(service.highlights || service.deliverables || service.inclusions || []).slice(0, 3).map((item, i) => (
                       <li key={i} className="flex items-start gap-2 text-xs text-[#334155] leading-snug">
                         <Check className="w-3.5 h-3.5 text-[#C25E38] shrink-0 mt-0.5" />
                         <span>{item}</span>

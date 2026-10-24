@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Menu, X, Phone, MessageCircle, ArrowUpRight, HardHat, Compass } from 'lucide-react';
 import { siteConfig, getWhatsAppUrl } from '../../config/siteConfig';
 import { Button } from '../common/Button';
@@ -16,13 +17,13 @@ export const Navbar = ({ onOpenQuoteModal }) => {
   }, []);
 
   const navLinks = [
-    { name: 'Services', href: '#services' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Why Us', href: '#why-us' },
-    { name: 'Process', href: '#process' },
-    { name: 'Estimator', href: '#cost-estimator' },
-    { name: 'Insights & FAQ', href: '#faq' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Services', href: '/services', isRoute: true },
+    { name: 'Projects', href: '/#projects', isRoute: false },
+    { name: 'Why Us', href: '/#why-us', isRoute: false },
+    { name: 'Process', href: '/#process', isRoute: false },
+    { name: 'Estimator', href: '/#cost-estimator', isRoute: false },
+    { name: 'Insights & FAQ', href: '/#faq', isRoute: false },
+    { name: 'Contact', href: '/#contact', isRoute: false },
   ];
 
   return (
@@ -36,7 +37,7 @@ export const Navbar = ({ onOpenQuoteModal }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-4">
           {/* Brand Logo & Construction Monogram */}
-          <a href="#" className="flex items-center gap-3 group">
+          <Link to="/" className="flex items-center gap-3 group">
             <div className="w-10 h-10 rounded-xs bg-[#0F263B] text-white flex items-center justify-center font-display font-extrabold text-xl tracking-tight border border-[#0F263B] shadow-xs group-hover:bg-[#C25E38] transition-colors">
               <span className="text-[#E09F3E] group-hover:text-white">S</span>
             </div>
@@ -48,19 +49,32 @@ export const Navbar = ({ onOpenQuoteModal }) => {
                 Construction & Infra
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-7">
-            {navLinks.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="font-display text-sm font-medium text-[#475569] hover:text-[#0E1318] transition-colors relative py-1 hover:after:w-full after:w-0 after:h-[2px] after:bg-[#C25E38] after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-200"
-              >
-                {item.name}
-              </a>
-            ))}
+            {navLinks.map((item) => {
+              if (item.isRoute) {
+                return (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className="font-display text-sm font-medium text-[#475569] hover:text-[#0E1318] transition-colors relative py-1 hover:after:w-full after:w-0 after:h-[2px] after:bg-[#C25E38] after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-200"
+                  >
+                    {item.name}
+                  </Link>
+                );
+              }
+              return (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="font-display text-sm font-medium text-[#475569] hover:text-[#0E1318] transition-colors relative py-1 hover:after:w-full after:w-0 after:h-[2px] after:bg-[#C25E38] after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-200"
+                >
+                  {item.name}
+                </a>
+              );
+            })}
           </nav>
 
           {/* Right Action: Direct Phone & Quote Button */}
@@ -106,17 +120,32 @@ export const Navbar = ({ onOpenQuoteModal }) => {
       {mobileMenuOpen && (
         <div className="lg:hidden fixed inset-x-0 top-full bg-white border-b border-[#E6E1D8] shadow-2xl p-6 transition-all duration-300">
           <nav className="flex flex-col gap-4 mb-6">
-            {navLinks.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="font-display text-base font-semibold text-[#0E1318] py-1 border-b border-gray-100 flex items-center justify-between"
-              >
-                <span>{item.name}</span>
-                <ArrowUpRight className="w-4 h-4 text-gray-400" />
-              </a>
-            ))}
+            {navLinks.map((item) => {
+              if (item.isRoute) {
+                return (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="font-display text-base font-semibold text-[#0E1318] py-1 border-b border-gray-100 flex items-center justify-between"
+                  >
+                    <span>{item.name}</span>
+                    <ArrowUpRight className="w-4 h-4 text-gray-400" />
+                  </Link>
+                );
+              }
+              return (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="font-display text-base font-semibold text-[#0E1318] py-1 border-b border-gray-100 flex items-center justify-between"
+                >
+                  <span>{item.name}</span>
+                  <ArrowUpRight className="w-4 h-4 text-gray-400" />
+                </a>
+              );
+            })}
           </nav>
 
           <div className="flex flex-col gap-3 pt-2">
