@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  --font-architectural: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+
+  --color-brand-charcoal: #0E1318;
+  --color-brand-dark: #161D24;
+  --color-brand-navy: #0F263B;
+  --color-brand-sand: #F8F7F4;
+  --color-brand-cream: #F3EFEA;
+  --color-brand-terracotta: #C25E38;
+  --color-brand-terracotta-hover: #A94F2E;
+  --color-brand-terracotta-light: #FBEFEA;
+  --color-brand-safety: #D97706;
+  --color-brand-border: #E5E1D8;
+  --color-brand-slate: #5A6572;
+}
+
+/* Custom architectural utilities */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-architectural {
+  font-family: var(--font-architectural);
+}
+
+/* Blueprint subtle grid overlay */
+.bg-architectural-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(14, 19, 24, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(14, 19, 24, 0.03) 1px, transparent 1px);
+}
+
+.bg-architectural-grid-dark {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+/* Architectural fine hairline divider */
+.architectural-border {
+  border-color: #E6E1D8;
+}
+
+/* Smooth custom scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F3EFEA;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C4BEB4;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9D968A;
+}
